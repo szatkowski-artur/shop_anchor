@@ -35,7 +35,7 @@ public class User {
     @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL) @ToString.Exclude
     private UserDetails details;
 
-    @ManyToMany
+    @ManyToMany @ToString.Exclude
     private Set<Role> roles = new HashSet<>();
 
 }

@@ -13,22 +13,16 @@ public class UserDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private String firstName;
-
-    @Column(nullable = false)
     private String lastName;
-
-    @Column(nullable = false)
     private Gender gender;
-
-    @Column(nullable = false)
     private LocalDate birthday;
-
-    @Column(nullable = false)
     private String country;
-
+    private String postalCode;
+    private String city;
+    private String streetName;
+    private String streetNumber;
+    private String flatNumber;
     @OneToOne
     private User owner;
 
