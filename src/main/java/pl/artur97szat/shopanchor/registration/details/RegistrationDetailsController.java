@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
-@Secured("ROLE_USER")
+//@Secured("ROLE_USER")
 @Controller @RequestMapping("registration/details")
 public class RegistrationDetailsController {
 
