@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 //@Secured("ROLE_USER")
-@Controller @RequestMapping("registration/details")
+@Controller @RequestMapping("register/details")
 public class RegistrationDetailsController {
 
     private final RegistrationDetailsService registrationDetailsService;

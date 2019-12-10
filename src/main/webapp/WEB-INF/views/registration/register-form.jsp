@@ -38,7 +38,8 @@
 
         <form:label path="password" cssClass="label">Verify Password
             <form:password path="rePassword" cssClass="input" placeholder="verify password"/>
-            <form:errors path="rePassword"/></form:label>
+            <form:errors path=""/></form:label>
+
         <form:label path="termsAndConditions" cssClass="checkbox">
             <form:checkbox path="termsAndConditions"/>I agree to <a
                 href="<c:out  value="/termsAndConditions" />">terms and conditions</a></form:label>
