@@ -18,4 +18,8 @@ public enum ShopType {
     public Class<? extends ElementStrategy> getStrategy() {
         return strategy;
     }
+
+    public String getPresentation() {
+        return presentation;
+    }
 }

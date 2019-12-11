@@ -40,4 +40,18 @@ public class DefaultShopService implements ShopService {
     public List<Shop> getAllShops() {
         return shopRepository.findAll();
     }
+
+    @Override
+    public void updateShopDatabase(){
+
+        for (ShopType shopType:ShopType.values()){
+
+            Shop shop = new Shop();
+            shop.setName(shopType.getPresentation());
+            shop.setType(shopType);
+            shopRepository.save(shop);
+
+        }
+
+    }
 }

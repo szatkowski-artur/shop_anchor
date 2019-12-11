@@ -10,4 +10,6 @@ public interface ShopService {
     String getSectionToObserve(String url, ShopType shopName) throws CouldNotConnectToPageException, ShopNotSupportedException;
 
     List<Shop> getAllShops();
+
+    void updateShopDatabase();
 }

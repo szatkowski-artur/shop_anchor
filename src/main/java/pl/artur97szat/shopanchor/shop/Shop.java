@@ -16,10 +16,10 @@ public class Shop {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)@Enumerated(EnumType.STRING)
+    @Column(nullable = false, unique = true)@Enumerated(EnumType.STRING)
     private ShopType type;
 
 }
