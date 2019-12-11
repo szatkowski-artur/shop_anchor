@@ -14,7 +14,12 @@
 </head>
 <body>
 <section class="section">
-    <h3 class="tag is-info is-large">Your most recent products</h3>
+    <h3 class="tag is-info is-large">
+        Your most recent products
+        <a href="">
+           <span> </span><i class="fas fa-redo"></i>
+        </a>
+    </h3>
     <table class="table is-hoverable">
         <thead>
         <tr>

@@ -19,6 +19,7 @@ public class Shop {
     @Column(nullable = false)
     private String name;
 
-
+    @Column(nullable = false)@Enumerated(EnumType.STRING)
+    private ShopType type;
 
 }

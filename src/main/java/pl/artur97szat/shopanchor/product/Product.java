@@ -30,9 +30,6 @@ public class Product {
     private String url;
 
     @Column(nullable = false)
-    private String element;
-
-    @Column(nullable = false)
     private LocalDateTime created;
 
     @Column(nullable = false)
