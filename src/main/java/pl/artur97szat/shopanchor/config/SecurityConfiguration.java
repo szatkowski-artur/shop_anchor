@@ -28,16 +28,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery("SELECT username, password, active FROM users WHERE username = ?")
                 .authoritiesByUsernameQuery(
-                         "SELECT u.username, r.name FROM users u JOIN users_roles ur ON u.id = ur.user_id JOIN roles r ON r.id = ur.roles_id WHERE u.username = ?"
-                        );
+                        "SELECT u.username, r.name FROM users u JOIN users_roles ur ON u.id = ur.user_id JOIN roles r ON r.id = ur.roles_id WHERE u.username = ?"
+                );
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .anyRequest().permitAll()
-                .and().formLogin()
-                .loginPage("/login");
+                .and().formLogin().loginPage("/login")
+                .and().logout().logoutSuccessUrl("/").permitAll();
     }
 
     @Bean
