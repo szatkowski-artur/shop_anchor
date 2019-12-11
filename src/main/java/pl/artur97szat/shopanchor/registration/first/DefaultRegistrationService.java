@@ -32,7 +32,6 @@ public class DefaultRegistrationService implements RegistrationService {
 
         ModelMapper model = new ModelMapper();
         User user = model.map(registrationData, User.class);
-        //        TODO obsługa powtórzeń maila i username
         user.setActive(Boolean.FALSE);
         user.setPassword(passwordEncoder.encode(registrationData.getPassword()));
         user.getRoles().add(roleRepository.getByName("ROLE_USER"));

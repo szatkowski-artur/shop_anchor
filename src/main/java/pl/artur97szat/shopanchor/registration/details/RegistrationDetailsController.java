@@ -1,5 +1,8 @@
 package pl.artur97szat.shopanchor.registration.details;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 //@Secured("ROLE_USER")
 @Controller @RequestMapping("register/details")
+@Slf4j
 public class RegistrationDetailsController {
 
     private final RegistrationDetailsService registrationDetailsService;
@@ -45,6 +49,7 @@ public class RegistrationDetailsController {
         if (result.hasErrors()){
             return "registration/register-details-form";
         }
+
         registrationDetailsService.addUserDetails(userDetails);
         return "redirect:/";
     }
