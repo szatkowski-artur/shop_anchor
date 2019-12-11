@@ -22,6 +22,10 @@
                 <form:input path="name" id="name" cssClass="input" cssErrorClass="input is-danger"/>
                 <form:errors path="name" element="p" cssClass="help is-danger"/>
             </form:label>
+            <form:label path="size" cssClass="label">
+                Size
+                <form:input path="size" cssClass="input"/>
+            </form:label>
             <form:label path="url" cssClass="label" cssErrorClass="label is-danger">
                 URL
                 <form:input path="url" cssClass="input" cssErrorClass="input is-danger"/>

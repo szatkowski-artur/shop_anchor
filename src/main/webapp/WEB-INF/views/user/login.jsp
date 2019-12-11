@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Login</title>
+    <jsp:include page="dashboard-header.jsp"/>
 </head>
 <body>
 <section class="section">

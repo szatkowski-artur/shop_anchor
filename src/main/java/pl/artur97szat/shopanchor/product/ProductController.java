@@ -2,7 +2,10 @@ package pl.artur97szat.shopanchor.product;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.artur97szat.shopanchor.shop.DefaultShopService;
 
@@ -12,9 +15,11 @@ import pl.artur97szat.shopanchor.shop.DefaultShopService;
 public class ProductController {
 
     private final DefaultShopService defaultShopService;
+    private final DefaultProductService productService;
 
-    public ProductController(DefaultShopService defaultShopService) {
+    public ProductController(DefaultShopService defaultShopService, DefaultProductService productService) {
         this.defaultShopService = defaultShopService;
+        this.productService = productService;
     }
 
     @GetMapping("/add")
@@ -23,6 +28,15 @@ public class ProductController {
         model.addAttribute("product", new AddProductDto());
         model.addAttribute("shops", defaultShopService.getAllShops());
         return "user/add-product";
+    }
+
+    @PostMapping("/add")
+    public String processAddingProduct(@ModelAttribute AddProductDto addProductDto, BindingResult result){
+        if (result.hasErrors()){
+            return "user/add-product";
+        }
+        productService.saveProduct(addProductDto);
+        return "user/user-dashboard";//TODO zmienić na wszystkie produkty
     }
 
     @GetMapping("/all")

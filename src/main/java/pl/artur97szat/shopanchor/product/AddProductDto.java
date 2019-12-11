@@ -12,6 +12,8 @@ public class AddProductDto {
 
     private String name;
 
-    private ShopType shop;
+    private Long shop;
+
+    private String size;
 
 }

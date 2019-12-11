@@ -35,6 +35,9 @@ public class Product {
     @Column(nullable = false)
     private LocalDateTime updated;
 
+    @Column(nullable = false)
+    private Boolean available;
+
     @ManyToOne
     private Shop shop;
 
