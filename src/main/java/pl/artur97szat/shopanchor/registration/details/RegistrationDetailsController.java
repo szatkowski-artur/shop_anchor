@@ -49,7 +49,7 @@ public class RegistrationDetailsController {
         if (result.hasErrors()){
             return "registration/register-details-form";
         }
-
+        log.error(userDetails.getCity());
         registrationDetailsService.addUserDetails(userDetails);
         return "redirect:/";
     }

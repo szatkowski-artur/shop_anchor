@@ -36,7 +36,7 @@ public class ProductController {
             return "user/add-product";
         }
         productService.saveProduct(addProductDto);
-        return "redirect: user/all-products";
+        return "user/all-products";
     }
 
     @GetMapping("/all")
@@ -44,6 +44,12 @@ public class ProductController {
         model.addAttribute("username", username);
         model.addAttribute("products", productService.getAllProductsForUser(username));
         return "user/all-products";
+    }
+
+    @GetMapping("/delete")
+    public String deleteProduct(Long id, Model model){
+        model.addAttribute("id", id);
+        return "";
     }
 
 }

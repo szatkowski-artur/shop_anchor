@@ -19,7 +19,7 @@
         <table class="table is-bordered is-hoverable  is-striped">
             <thead>
             <tr>
-                <th>No</th>
+                <th>N<sup>o</sup> </th>
                 <th>Name</th>
                 <th>Available</th>
                 <th>Refresh</th>
@@ -31,18 +31,28 @@
                     <td>${i.count}</td>
                     <td>${product.name}</td>
                     <td>
-                        <c:choose>
-                            <c:when test="${product.available}">
-                                <span class="icon"><i class="fas fa-check"></i></span>
-
-                            </c:when>
-                            <c:otherwise>
-                                <span class="icon"><i class="fas fa-times"></i></span>
-                            </c:otherwise>
-                        </c:choose>
+                        <span class="icon">
+                            <c:choose>
+                                <c:when test="${product.available}">
+                                    <i class="fas fa-check"></i>
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="fas fa-times"></i>
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <a href="<c:url value=""/>">
+                                <%--                            TODO dodać link do odświeżania--%>
+                            <span class="icon"><i class="fas fa-redo"></i></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="<c:url value="/product/delete?id=${product.id}" />">
+                            <span class="icon"><i class="fas fa-minus"></i></span>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
