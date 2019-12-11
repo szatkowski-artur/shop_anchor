@@ -57,7 +57,7 @@
                             <a class="button is-success" href="/login">
                                 <strong>Login</strong>
                             </a>
-                            <a class="button is-primary" href="/account">
+                            <a class="button is-primary" href="/user">
                                 <strong>Your Account</strong>
                             </a>
                             <form method="post" action="/logout">

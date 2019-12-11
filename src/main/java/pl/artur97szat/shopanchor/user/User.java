@@ -3,11 +3,13 @@ package pl.artur97szat.shopanchor.user;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import pl.artur97szat.shopanchor.product.Product;
 import pl.artur97szat.shopanchor.role.Role;
 import pl.artur97szat.shopanchor.userDetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,5 +39,8 @@ public class User {
 
     @ManyToMany @ToString.Exclude
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Product> product;
 
 }
