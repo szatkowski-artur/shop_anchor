@@ -23,13 +23,13 @@ public class DefaultRegistrationDetailsService implements RegistrationDetailsSer
         ModelMapper modelMapper = new ModelMapper();
         UserDetails userDetails = modelMapper.map(userDetailsDTO, UserDetails.class);
         userDetails.setId(userDetailsRepository.getByOwnerId(userDetailsDTO.getOwner()).getId());
-        userDetails.setOwner(userRepository.getById(userDetailsDTO.getOwner()));
+        userDetails.setOwner(userRepository.getOne(userDetailsDTO.getOwner()));
         userDetailsRepository.save(userDetails);
     }
 
     @Override
     public void confirmUser(Long id) {
-        User user = userRepository.getById(id);
+        User user = userRepository.getOne(id);
         user.setActive(Boolean.TRUE);
         userRepository.save(user);
     }

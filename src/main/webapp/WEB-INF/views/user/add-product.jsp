@@ -36,7 +36,7 @@
                 <form:select path="shop" items="${shops}" cssClass="select" itemLabel="name" itemValue="id" cssErrorClass="select is-danger"/>
                 <form:errors path="shop" element="p" cssClass="help is-danger"/>
             </form:label>
-            <form:hidden path="username" value="${username}"/>
+<%--            <form:hidden path="username" value="${username}"/>--%>
             <input type="submit" class="button is-success" value="Send">
         </form:form>
     </div>

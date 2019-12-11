@@ -36,13 +36,14 @@ public class ProductController {
             return "user/add-product";
         }
         productService.saveProduct(addProductDto);
-        return "user/user-dashboard";//TODO zmienić na wszystkie produkty
+        return "redirect: user/all-products";
     }
 
     @GetMapping("/all")
     public String allProducts(String username, Model model){
         model.addAttribute("username", username);
-        return "";
+        model.addAttribute("products", productService.getAllProductsForUser(username));
+        return "user/all-products";
     }
 
 }
