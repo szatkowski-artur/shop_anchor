@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Add product</title>
-    <jsp:include page="dashboard-header.jsp"/>
+    <jsp:include page="../fragments/dashboard-header.jsp"/>
 </head>
 <body>
 <section class="section">
@@ -44,5 +44,8 @@
         </form:form>
     </div>
 </section>
+<footer>
+    <jsp:include page="../fragments/homepage-footer.jsp"/>
+</footer>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Your account</title>
-    <jsp:include page="dashboard-header.jsp"></jsp:include>
+    <jsp:include page="../fragments/dashboard-header.jsp"></jsp:include>
 </head>
 <body>
 <section class="section">
@@ -69,5 +69,8 @@
         </c:forEach>
     </table>
 </section>
+<footer>
+    <jsp:include page="../fragments/homepage-footer.jsp"/>
+</footer>
 </body>
 </html>

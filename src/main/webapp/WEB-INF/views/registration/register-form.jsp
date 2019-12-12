@@ -14,9 +14,7 @@
 <html>
 <head>
     <title>Register</title>
-    <link rel="stylesheet" href="/webjars/bulma/0.7.5/css/bulma.min.css">
-    <script defer src="webjars/font-awesome/5.10.1/js/fontawesome.min.js"></script>
-    <script src="https://kit.fontawesome.com/dccc7f3006.js" crossorigin="anonymous"></script>
+   <jsp:include page="../fragments/homepage-header.jsp"/>
 </head>
 <body>
 <section class="section">
@@ -51,7 +49,9 @@
         </div>
     </div>
 </section>
-
+<footer>
+    <jsp:include page="../fragments/homepage-footer.jsp"/>
+</footer>
 
 </body>
 </html>

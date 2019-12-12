@@ -26,13 +26,13 @@ public class ProductController {
     public String addProductForm(Model model) {
         model.addAttribute("product", new AddProductDto());
         model.addAttribute("shops", defaultShopService.getAllShops());
-        return "user/add-product";
+        return "product/add-product";
     }
 
     @PostMapping("/add")
     public String processAddingProduct(@ModelAttribute @Valid AddProductDto addProductDto, BindingResult result) {
         if (result.hasErrors()) {
-            return "user/add-product";
+            return "product/add-product";
         }
         productService.saveProduct(addProductDto);
         return "redirect:all";
@@ -46,13 +46,13 @@ public class ProductController {
             model.addAttribute("shops", defaultShopService.getAllShops());
         }
         model.addAttribute("productId", productId);
-        return "user/all-products";
+        return "product/all-products";
     }
 
     @GetMapping("/delete")
     public String deleteProduct(Long id, Model model) {
         model.addAttribute("product", productService.getProductByIdToAddProductDTO(id));
-        return "user/delete-product";
+        return "product/delete-product";
     }
 
     @RequestMapping("/delete")
@@ -67,7 +67,7 @@ public class ProductController {
             model.addAttribute("productId", productId);
             model.addAttribute("editProduct", productService.getProductByIdToAddProductDTO(productId));
             model.addAttribute("shops", defaultShopService.getAllShops());
-            return "user/all-products";
+            return "product/all-products";
         }
         productService.updateProduct(productDto);
         return "redirect:all";

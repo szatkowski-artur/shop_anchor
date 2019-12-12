@@ -10,20 +10,21 @@
 <html>
 <head>
     <title>Registration</title>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1.0"/>
-
-    <%-- Linki do szablonów css trafią tutaj --%>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-
-    <%-- Linki do skryptów js trafią tutaj --%>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <jsp:include page="../fragments/homepage-header.jsp"/>
 </head>
 <body>
-<div class="tag are-large">
-    <h3 class="tag is-success is-large">Congratulations Your're almost done!</br>
-        To finish registration You have to click on confirmation link we've send to your
-        email(${registrationDataDTO.email})</br>
-        See You soon!</h3>
-</div>
+<section class="hero is-success is-bold is-medium">
+    <div class="container has-text-white">
+        <h1><strong>
+            Congratulations Your're almost done!</br>
+            To finish registration You have to click on confirmation link we've send to your
+            email(${registrationDataDTO.email})</br>
+            See You soon!
+        </strong></h1>
+    </div>
+</section>
+<footer>
+    <jsp:include page="../fragments/homepage-footer.jsp"/>
+</footer>
 </body>
 </html>

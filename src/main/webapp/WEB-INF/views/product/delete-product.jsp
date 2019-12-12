@@ -15,7 +15,7 @@
 <body>
 <section class="hero is-fullheight is-light is-bold">
     <div class="hero-head">
-        <jsp:include page="dashboard-header.jsp"/>
+        <jsp:include page="../fragments/dashboard-header.jsp"/>
         <span>
             <br>
             <br>
@@ -41,5 +41,8 @@
         </div>
     </div>
 </section>
+<footer>
+    <jsp:include page="../fragments/homepage-footer.jsp"/>
+</footer>
 </body>
 </html>

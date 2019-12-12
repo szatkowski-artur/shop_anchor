@@ -13,7 +13,7 @@
 <html>
 <head>
     <title>All Your Products</title>
-    <jsp:include page="dashboard-header.jsp"/>
+    <jsp:include page="../fragments/dashboard-header.jsp"/>
 </head>
 <body>
 <section class="section">
@@ -120,5 +120,8 @@
         </table>
     </div>
 </section>
+<footer>
+    <jsp:include page="../fragments/homepage-footer.jsp"/>
+</footer>
 </body>
 </html>
