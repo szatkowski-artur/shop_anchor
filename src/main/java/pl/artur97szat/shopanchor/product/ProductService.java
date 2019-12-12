@@ -5,7 +5,9 @@ import java.util.List;
 public interface ProductService {
     void saveProduct(AddProductDto addProductDto);
 
-    List<Product> getAllProductsForUser(String username);
+    List<Product> getAllProductsForUser();
 
-    List<Product> getNewestFiveForUser(String username);
+    List<Product> getNewestFiveForUser();
+
+    AddProductDto getProductByIdToAddProductDTO(Long id);
 }

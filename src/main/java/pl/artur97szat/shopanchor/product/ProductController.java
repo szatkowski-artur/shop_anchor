@@ -23,33 +23,48 @@ public class ProductController {
     }
 
     @GetMapping("/add")
-    public String addProductForm(String username, Model model) {
-        model.addAttribute("username", username);
+    public String addProductForm(Model model) {
         model.addAttribute("product", new AddProductDto());
         model.addAttribute("shops", defaultShopService.getAllShops());
         return "user/add-product";
     }
 
     @PostMapping("/add")
-    public String processAddingProduct(@ModelAttribute AddProductDto addProductDto, BindingResult result){
-        if (result.hasErrors()){
+    public String processAddingProduct(@ModelAttribute AddProductDto addProductDto, BindingResult result) {
+        if (result.hasErrors()) {
             return "user/add-product";
         }
         productService.saveProduct(addProductDto);
-        return String.format("redirect:all?username=%s", addProductDto.getUsername());
+        return "redirect:all";
     }
 
     @GetMapping("/all")
-    public String allProducts(String username, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("products", productService.getAllProductsForUser(username));
+    public String allProducts(Long productId, Model model) {
+        model.addAttribute("products", productService.getAllProductsForUser());
+        if (productId != null) {
+            model.addAttribute("editProduct", productService.getProductByIdToAddProductDTO(productId));
+            model.addAttribute("shops", defaultShopService.getAllShops());
+        }
+        model.addAttribute("productId", productId);
         return "user/all-products";
     }
 
     @GetMapping("/delete")
-    public String deleteProduct(Long id, Model model){
+    public String deleteProduct(Long id, Model model) {
         model.addAttribute("id", id);
         return "";
+    }
+
+    @PostMapping("/update")
+    public String updateProduct(@ModelAttribute AddProductDto productDto, Long productId, BindingResult result, Model model){
+        if (result.hasErrors()){
+            model.addAttribute("productId", productId);
+            model.addAttribute("editProduct", productService.getProductByIdToAddProductDTO(productId));
+            model.addAttribute("shops", defaultShopService.getAllShops());
+            return "user/all-products";
+        }
+        productService.updateProduct(productDto);
+        return "redirect:all";
     }
 
 }

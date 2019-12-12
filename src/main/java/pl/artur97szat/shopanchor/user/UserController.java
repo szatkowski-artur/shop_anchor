@@ -22,9 +22,8 @@ public class UserController {
     }
 
     @GetMapping
-    public String userHomePage(Model model, Principal principal) {
-        model.addAttribute("username", principal.getName());
-        model.addAttribute("products", productService.getNewestFiveForUser(principal.getName()));
+    public String userHomePage(Model model) {
+        model.addAttribute("products", productService.getNewestFiveForUser());
         return "user/user-dashboard";
     }
 

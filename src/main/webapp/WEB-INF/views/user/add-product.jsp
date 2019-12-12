@@ -37,7 +37,6 @@
                 <form:errors path="shopId" element="p" cssClass="help is-danger"/>
             </form:label>
             <form:hidden path="available" value="${false}"/>
-<%--            <form:hidden path="username" value="${username}"/>--%>
             <input type="submit" class="button is-success" value="Send">
         </form:form>
     </div>
