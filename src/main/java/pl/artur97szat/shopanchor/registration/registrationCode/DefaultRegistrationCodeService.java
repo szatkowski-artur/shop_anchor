@@ -11,8 +11,14 @@ public class DefaultRegistrationCodeService implements RegistrationCodeService {
         this.registrationCodeRepository = registrationCodeRepository;
     }
 
+    @Override
     public Long getUsersId(String registrationCode) {
         return registrationCodeRepository.getOne(registrationCode).getUser().getId();
+    }
+
+    @Override
+    public void deleteRegistrationCode(String registrationCode) {
+        registrationCodeRepository.deleteById(registrationCode);
     }
 
 }

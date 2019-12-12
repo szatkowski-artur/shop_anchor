@@ -41,7 +41,7 @@ public class DefaultEmailService implements EmailService {
             registrationCode.setCode(generateVerificationCode());
             registrationCode.setUser(userRepository.getOne(id));
             registrationCodeRepository.save(registrationCode);
-            helper.setText(String.format("Welcome %s to ShopAnchor! %nHere's Your confirmation link: http://localhost:8080/register/details?id=%s", username, registrationCode.getCode()));
+            helper.setText(String.format("Welcome %s to ShopAnchor! %nHere's Your confirmation link: http://localhost:8080/register/details?registrationCode=%s", username, registrationCode.getCode()));
         } catch (MessagingException e) {
             e.printStackTrace();
         }
