@@ -16,7 +16,14 @@
 </head>
 <body>
 <section class="section">
-    <div class="column is-three-fifths is-offset-one-third">
+    <div class="column is-one-third is-offset-one-third">
+        <div class="column is-one-third is-offset-one-third">
+            <form action="/product/user/refresh" method="post">
+                <input type="submit" value="Refresh"/>
+            </form>
+<%--                <span class="icon"><i class="fas fa-redo-alt"></i></span>--%>
+
+        </div>
         <table class="table is-bordered is-hoverable  is-striped">
             <thead>
             <tr>

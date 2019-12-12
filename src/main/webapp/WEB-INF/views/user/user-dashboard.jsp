@@ -22,6 +22,7 @@
             <span> </span><i class="fas fa-redo"></i>
         </a>
     </h3>
+
     <table class="table is-bordered is-hoverable  is-striped">
         <thead>
         <tr>

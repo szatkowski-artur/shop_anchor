@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import pl.artur97szat.shopanchor.exeption.CouldNotConnectToPageException;
 import pl.artur97szat.shopanchor.exeption.ShopNotSupportedException;
 import pl.artur97szat.shopanchor.shop.elements.ChooseShopFactory;
+import pl.artur97szat.shopanchor.shop.elements.ElementStrategy;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,17 +23,8 @@ public class DefaultShopService implements ShopService {
     }
 
     @Override
-    public String getSectionToObserve(String url, ShopType shopName) throws CouldNotConnectToPageException, ShopNotSupportedException {
-
-        Document document = null;
-        try {
-            document = Jsoup.connect(url).get();
-        } catch (IOException e) {
-            log.error("Nie udało się połączyć z url", e);
-            throw new CouldNotConnectToPageException("Couldn't connect with shop from url", e);
-        }
-
-        return ChooseShopFactory.chooseShop(shopName).getElement(document).html();
+    public ElementStrategy getShopImplementation(ShopType shopName)throws ShopNotSupportedException {
+        return ChooseShopFactory.chooseShop(shopName);
 
     }
 
@@ -42,9 +34,9 @@ public class DefaultShopService implements ShopService {
     }
 
     @Override
-    public void updateShopDatabase(){
+    public void updateShopDatabase() {
 
-        for (ShopType shopType:ShopType.values()){
+        for (ShopType shopType : ShopType.values()) {
 
             Shop shop = new Shop();
             shop.setName(shopType.getPresentation());

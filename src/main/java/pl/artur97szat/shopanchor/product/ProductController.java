@@ -70,4 +70,10 @@ public class ProductController {
         return "redirect:all";
     }
 
+    @PostMapping("/user/refresh")
+    public String refreshAllProducts(){
+        productService.updateAllProductsForUser();
+        return "redirect:all";
+    }
+
 }
