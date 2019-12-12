@@ -31,11 +31,12 @@
                 <form:input path="url" cssClass="input" cssErrorClass="input is-danger"/>
                 <form:errors path="url" element="p" cssClass="help is-danger"/>
             </form:label>
-            <form:label path="shop" cssClass="label" cssErrorClass="label is-danger">
+            <form:label path="shopId" cssClass="label" cssErrorClass="label is-danger">
                 Shop
-                <form:select path="shop" items="${shops}" cssClass="select" itemLabel="name" itemValue="id" cssErrorClass="select is-danger"/>
-                <form:errors path="shop" element="p" cssClass="help is-danger"/>
+                <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name" itemValue="id" cssErrorClass="select is-danger"/>
+                <form:errors path="shopId" element="p" cssClass="help is-danger"/>
             </form:label>
+            <form:hidden path="available" value="${false}"/>
 <%--            <form:hidden path="username" value="${username}"/>--%>
             <input type="submit" class="button is-success" value="Send">
         </form:form>

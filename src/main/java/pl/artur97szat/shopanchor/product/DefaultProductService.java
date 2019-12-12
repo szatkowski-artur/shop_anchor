@@ -1,5 +1,6 @@
 package pl.artur97szat.shopanchor.product;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pl.artur97szat.shopanchor.shop.ShopRepository;
 import pl.artur97szat.shopanchor.user.UserRepository;
@@ -23,21 +24,24 @@ public class DefaultProductService implements ProductService {
     @Override
     public void saveProduct(AddProductDto addProductDto) {
 
-        Product product = new Product();
-        product.setName(addProductDto.getName());
-        product.setShop(shopRepository.getOne(addProductDto.getShop()));
-        product.setUrl(addProductDto.getUrl());
-        product.setSize(addProductDto.getSize());
+        ModelMapper mapper = new ModelMapper();
+        Product product = mapper.map(addProductDto, Product.class);
         product.setCreated(LocalDateTime.now());
         product.setUpdated(LocalDateTime.now());
-        product.setAvailable(false);
         product.setUser(userRepository.getByUsername(addProductDto.getUsername()).get());
         productRepository.save(product);
 
     }
 
+    @Override
     public List<Product> getAllProductsForUser(String username) {
         return productRepository.findAllByUserId(userRepository.getByUsername(username).get().getId());
+    }
+
+    @Override
+    public List<Product> getNewestFiveForUser(String username) {
+        return productRepository.findTop5ByUserIdOrderByUpdatedDesc(
+                userRepository.getByUsername(username).get().getId());
     }
 
 

@@ -38,8 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().permitAll()
                 .and().formLogin().loginPage("/login")
-                .and().logout().logoutSuccessUrl("/").permitAll();
-//                .and().csrf().disable();
+                .and().logout().logoutSuccessUrl("/").permitAll()
+                .and().csrf().disable();
 
 
 

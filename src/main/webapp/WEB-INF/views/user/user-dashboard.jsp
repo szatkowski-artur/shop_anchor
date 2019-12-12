@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -29,6 +30,34 @@
             <th>Delete</th>
         </tr>
         </thead>
+        <c:forEach items="${products}" var="product" varStatus="i">
+            <tr>
+                <td>${product.name}</td>
+                <td>
+                        <span class="icon">
+                            <c:choose>
+                                <c:when test="${product.available}">
+                                    <i class="fas fa-check"></i>
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="fas fa-times"></i>
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
+                </td>
+                <td>
+                    <a href="<c:url value=""/>">
+                            <%--                            TODO dodać link do odświeżania--%>
+                        <span class="icon"><i class="fas fa-redo"></i></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="<c:url value="/product/delete?id=${product.id}" />">
+                        <span class="icon"><i class="fas fa-minus"></i></span>
+                    </a>
+                </td>
+            </tr>
+        </c:forEach>
     </table>
 </section>
 </body>

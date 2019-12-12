@@ -26,7 +26,7 @@ public class Product {
     @Column(nullable = false)
     private String size;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String url;
 
     @Column(nullable = false)

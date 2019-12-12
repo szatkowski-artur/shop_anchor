@@ -36,7 +36,7 @@ public class ProductController {
             return "user/add-product";
         }
         productService.saveProduct(addProductDto);
-        return "user/all-products";
+        return String.format("redirect:all?username=%s", addProductDto.getUsername());
     }
 
     @GetMapping("/all")

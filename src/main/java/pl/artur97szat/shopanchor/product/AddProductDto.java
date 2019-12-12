@@ -1,7 +1,6 @@
 package pl.artur97szat.shopanchor.product;
 
 import lombok.Data;
-import pl.artur97szat.shopanchor.shop.ShopType;
 
 @Data
 public class AddProductDto {
@@ -12,8 +11,10 @@ public class AddProductDto {
 
     private String name;
 
-    private Long shop;
+    private Long shopId;
 
     private String size;
+
+    private Boolean available;
 
 }
