@@ -3,6 +3,11 @@ package pl.artur97szat.shopanchor.shop.elements;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.util.List;
+import java.util.stream.Collector;
+
+import static java.util.stream.Collectors.toList;
+
 
 public class Zara implements ElementStrategy {
 
@@ -14,10 +19,12 @@ public class Zara implements ElementStrategy {
     @Override
     public Boolean isAvailable(Document document, String size) {
 
-        Element freshElement = getElement(document);
+        List<Element> elements = getElement(document).children().stream()
+                .filter(e->!e.className().contains("disabled"))
+                .collect(toList());
 
-        for (String sizes : freshElement.children().eachAttr("data-name")) {
-            if (size.equalsIgnoreCase(sizes)) {
+        for (Element element : elements) {
+            if (size.equalsIgnoreCase(element.attr("data-name"))) {
                 return true;
             }
         }
