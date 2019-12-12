@@ -11,7 +11,7 @@
     <groupId>pl.artur97-szat</groupId>
     <artifactId>shopanchor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+<!--    <packaging>war</packaging>-->
     <name>shopanchor</name>
     <description>Application to help you find product available with your size</description>
 
