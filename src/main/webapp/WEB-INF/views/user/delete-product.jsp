@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -26,13 +27,15 @@
                     <span class="tag is-warning is-large">Are you sure you want to delete ${product.name}?</span>
                     <form method="post">
                         <input type="submit" value="Delete" class="tag is-danger is-large">
+                        <s:csrfInput/>
+                    </form>
+                    <form action="/product/all" method="get">
+                        <input type="submit" value="Cancel" class="tag is-success is-large" >
+                        <s:csrfInput/>
                     </form>
 <%--                    <span class="tag is-danger is-large is-bold">--%>
 <%--                        <a class="has-text-white" href="/product/deleteProcess">Delete</a>--%>
 <%--                    </span>--%>
-
-                    <span class="tag is-success is-large"><a class="has-text-white"
-                                                             href="/product/all">Cancel</a></span>
                 </div>
             </div>
         </div>

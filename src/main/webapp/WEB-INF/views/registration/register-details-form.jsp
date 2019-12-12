@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -40,7 +41,8 @@
         <div class="control">
             <form:label path="birthday" cssClass="label" cssErrorClass="label is-danger">
                 Birthday
-                <form:input type="date" path="birthday" cssClass="input" cssErrorClass="input is-danger" placeholder="yyyy/mm/dd"/>
+                <form:input type="date" path="birthday" cssClass="input" cssErrorClass="input is-danger"
+                            placeholder="yyyy/mm/dd"/>
                 <form:errors path="birthday" cssClass="help is-danger"/>
             </form:label>
         </div>
@@ -68,28 +70,32 @@
         <div class="control">
             <form:label path="postalCode" cssClass="label" cssErrorClass="label is-danger">
                 Postal code
-                <form:input path="postalCode" type="number" size="5" cssClass="input" cssErrorClass="input is-danger" placeholder="e.g. 50500"/>
+                <form:input path="postalCode" type="number" size="5" cssClass="input" cssErrorClass="input is-danger"
+                            placeholder="e.g. 50500"/>
                 <form:errors path="postalCode" cssClass="help is-danger"/>
             </form:label>
         </div>
         <div class="control">
             <form:label path="streetName" cssClass="label" cssErrorClass="label is-danger">
                 Street name
-                <form:input path="streetName" cssClass="input" cssErrorClass="input is-danger" placeholder="Street name"/>
+                <form:input path="streetName" cssClass="input" cssErrorClass="input is-danger"
+                            placeholder="Street name"/>
                 <form:errors path="streetName" cssClass="help is-danger"/>
             </form:label>
         </div>
         <div class="control">
             <form:label path="streetNumber" cssClass="label" cssErrorClass="label is-danger">
                 Street number
-                <form:input path="streetNumber" cssClass="input" cssErrorClass="input is-danger" placeholder="Street number"/>
+                <form:input path="streetNumber" cssClass="input" cssErrorClass="input is-danger"
+                            placeholder="Street number"/>
                 <form:errors path="streetNumber" cssClass="help is-danger"/>
             </form:label>
         </div>
         <div class="control">
             <form:label path="flatNumber" cssClass="label" cssErrorClass="label is-danger">
                 Flat number
-                <form:input path="flatNumber" cssClass="input" cssErrorClass="input is-danger" placeholder="Flat Number"/>
+                <form:input path="flatNumber" cssClass="input" cssErrorClass="input is-danger"
+                            placeholder="Flat Number"/>
                 <form:errors path="flatNumber" cssClass="help is-danger"/>
             </form:label>
         </div>
@@ -97,6 +103,7 @@
             <input type="submit" class="button" value="Send">
         </div>
         <form:hidden path="owner" value="${owner}"/>
+        <s:csrfInput/>
     </form:form>
 </div>
 </body>

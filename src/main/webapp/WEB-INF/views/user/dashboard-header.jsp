@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -27,11 +28,11 @@
                 Home
             </a>
 
-            <a class="navbar-item" href="<c:url value="/product/add?username=${username}" />">
+            <a class="navbar-item" href="<c:url value="/product/add" />">
                 Add product
             </a>
 
-            <a class="navbar-item" href="<c:url value="/product/all?username=${username}" />">
+            <a class="navbar-item" href="<c:url value="/product/all" />">
                 All products
             </a>
 
@@ -61,10 +62,12 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-success">Welcome <strong>&nbsp;${username}</strong>!</a>
-                    <a class="button is-primary" href="/logout">
-                        <strong>Log out</strong>
-                    </a>
+<%--                    TODO add proper username--%>
+                    <form action="/logout" method="post" >
+                        <input type="button" value="Welcome ${username}" class="button is-success">
+                        <input type="submit" value="Logout" class="button is-primary">
+                        <s:csrfInput/>
+                    </form>
                 </div>
             </div>
         </div>

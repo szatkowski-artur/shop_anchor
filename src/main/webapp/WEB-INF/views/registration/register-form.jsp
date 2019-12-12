@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -48,6 +49,7 @@
                     <form:errors path="termsAndConditions" element="p" cssClass="help is-danger"/>
                 </form:label>
                 <input type="submit" value="Send" class="button is-small">
+                <s:csrfInput/>
             </form:form>
 
         </div>

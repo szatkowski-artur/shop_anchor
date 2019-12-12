@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -19,10 +20,10 @@
     <div class="column is-one-third is-offset-one-third">
         <div class="column is-one-third is-offset-one-third">
             <form action="/product/user/refresh" method="post">
-                <input type="submit" value="Refresh"/>
+                <input type="image" src="/images/redoButton.png" alt="submit"/>
+                <%--                TODO set redo icon as button--%>
+                <s:csrfInput/>
             </form>
-<%--                <span class="icon"><i class="fas fa-redo-alt"></i></span>--%>
-
         </div>
         <table class="table is-bordered is-hoverable  is-striped">
             <thead>
@@ -57,22 +58,24 @@
                             </td>
                             <td>
                                 <form:label path="url" cssClass="label" cssErrorClass="label is-danger">
-                                    URL
-                                    <form:input path="url" cssClass="input" cssErrorClass="input is-danger"/>
+                                    <%--                                    TODO add cancel button--%>URL
+                                    <form:input path="url" cssClass="input" cssErrorClass="input is-danger" type="url"/>
                                     <form:errors path="url" element="p" cssClass="help is-danger"/>
                                 </form:label>
                             </td>
                             <td>
                                 <form:label path="shopId" cssClass="label" cssErrorClass="label is-danger">
                                     Shop
-                                    <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name" itemValue="id" cssErrorClass="select is-danger"/>
+                                    <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name"
+                                                 itemValue="id" cssErrorClass="select is-danger"/>
                                     <form:errors path="shopId" element="p" cssClass="help is-danger"/>
                                 </form:label>
                                 <form:hidden path="available" value="${editProduct.available}"/>
                                 <form:hidden path="id" value="${productId}"/>
-                                <form:hidden path="created" value="${editProduct.created}" />
+                                <form:hidden path="created" value="${editProduct.created}"/>
                                 <input type="submit" class="button is-success" value="Send">
                             </td>
+                            <s:csrfInput/>
                         </form:form>
                         </tr>
                     </c:when>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -33,11 +34,13 @@
             </form:label>
             <form:label path="shopId" cssClass="label" cssErrorClass="label is-danger">
                 Shop
-                <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name" itemValue="id" cssErrorClass="select is-danger"/>
+                <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name" itemValue="id"
+                             cssErrorClass="select is-danger"/>
                 <form:errors path="shopId" element="p" cssClass="help is-danger"/>
             </form:label>
             <form:hidden path="available" value="${false}"/>
             <input type="submit" class="button is-success" value="Send">
+            <s:csrfInput/>
         </form:form>
     </div>
 </section>
