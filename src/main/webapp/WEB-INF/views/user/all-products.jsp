@@ -20,7 +20,8 @@
     <div class="column is-one-third is-offset-one-third">
         <div class="column is-one-third is-offset-one-third">
             <form action="/product/user/refresh" method="post">
-                <input type="image" src="/images/redoButton.png" alt="submit"/>
+                <input type="submit" class="button is-info" value="Refresh">
+<%--                <input type="image" src="/images/redoButton.png" alt="submit"/>--%>
                 <%--                TODO set redo icon as button--%>
                 <s:csrfInput/>
             </form>

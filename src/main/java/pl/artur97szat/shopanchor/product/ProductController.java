@@ -1,5 +1,6 @@
 package pl.artur97szat.shopanchor.product;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,7 +9,7 @@ import pl.artur97szat.shopanchor.shop.DefaultShopService;
 
 import javax.validation.Valid;
 
-
+@Secured("ROLE_USER")
 @Controller
 @RequestMapping("/product")
 public class ProductController {
