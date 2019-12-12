@@ -4,6 +4,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.artur97szat.shopanchor.product.DefaultProductService;
 import pl.artur97szat.shopanchor.product.ProductRepository;
@@ -25,6 +26,12 @@ public class UserController {
     public String userHomePage(Model model) {
         model.addAttribute("products", productService.getNewestFiveForUser());
         return "user/user-dashboard";
+    }
+
+    @PostMapping
+    public String redirectToEdit(Long productId, Model model){
+        model.addAttribute("productId", productId);
+        return "user/all-products";
     }
 
 }

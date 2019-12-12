@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -18,20 +19,22 @@
     <h3 class="tag is-info is-large">
         Your most recent products
         <a href="">
-           <span> </span><i class="fas fa-redo"></i>
+            <span> </span><i class="fas fa-redo"></i>
         </a>
     </h3>
-    <table class="table is-hoverable">
+    <table class="table is-bordered is-hoverable  is-striped">
         <thead>
         <tr>
-            <th>Product name</th>
+            <th>N<sup>o</sup></th>
+            <th>Name</th>
             <th>Available</th>
-            <th>Refresh</th>
+            <th>Edit</th>
             <th>Delete</th>
         </tr>
         </thead>
         <c:forEach items="${products}" var="product" varStatus="i">
             <tr>
+                <td>${i.count}</td>
                 <td>${product.name}</td>
                 <td>
                         <span class="icon">
@@ -40,20 +43,19 @@
                                     <i class="fas fa-check"></i>
                                 </c:when>
                                 <c:otherwise>
-                                    <i class="fas fa-times"></i>
+                                    <i class="fas fa-minus"></i>
                                 </c:otherwise>
                             </c:choose>
                         </span>
                 </td>
                 <td>
-                    <a href="<c:url value=""/>">
-                            <%--                            TODO dodać link do odświeżania--%>
-                        <span class="icon"><i class="fas fa-redo"></i></span>
+                    <a href="<c:url value="/product/all?productId=${product.id}&username=${username}"/>">
+                        <span class="icon"><i class="fas fa-edit"></i></span>
                     </a>
                 </td>
                 <td>
                     <a href="<c:url value="/product/delete?id=${product.id}" />">
-                        <span class="icon"><i class="fas fa-minus"></i></span>
+                        <span class="icon"><i class="fas fa-times"></i></span>
                     </a>
                 </td>
             </tr>
