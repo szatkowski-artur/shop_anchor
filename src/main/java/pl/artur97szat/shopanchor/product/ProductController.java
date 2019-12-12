@@ -6,6 +6,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.artur97szat.shopanchor.shop.DefaultShopService;
 
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("/product")
@@ -27,7 +29,7 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String processAddingProduct(@ModelAttribute AddProductDto addProductDto, BindingResult result) {
+    public String processAddingProduct(@ModelAttribute @Valid AddProductDto addProductDto, BindingResult result) {
         if (result.hasErrors()) {
             return "user/add-product";
         }
@@ -59,7 +61,7 @@ public class ProductController {
     }
 
     @PostMapping("/update")
-    public String updateProduct(@ModelAttribute AddProductDto productDto, Long productId, BindingResult result, Model model) {
+    public String updateProduct(@ModelAttribute @Valid AddProductDto productDto, Long productId, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("productId", productId);
             model.addAttribute("editProduct", productService.getProductByIdToAddProductDTO(productId));
