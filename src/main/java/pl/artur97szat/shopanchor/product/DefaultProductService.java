@@ -43,7 +43,7 @@ public class DefaultProductService implements ProductService {
 
     @Override
     public List<Product> getAllProductsForUser() {
-        return productRepository.findAllByUserId(userRepository.getByUsername(Username.get()).get().getId());
+        return productRepository.findAllByUserIdOrderByUpdatedDesc(userRepository.getByUsername(Username.get()).get().getId());
     }
 
     @Override
