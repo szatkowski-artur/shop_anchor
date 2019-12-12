@@ -17,11 +17,11 @@
 </head>
 <body>
 <section class="section">
-    <div class="column is-one-third is-offset-one-third">
+    <div class="column  is-offset-one-third">
         <div class="column is-one-third is-offset-one-third">
             <form action="/product/user/refresh" method="post">
                 <input type="submit" class="button is-info" value="Refresh">
-<%--                <input type="image" src="/images/redoButton.png" alt="submit"/>--%>
+                <%--                <input type="image" src="/images/redoButton.png" alt="submit"/>--%>
                 <%--                TODO set redo icon as button--%>
                 <s:csrfInput/>
             </form>
@@ -32,6 +32,7 @@
                 <th>N<sup>o</sup></th>
                 <th>Name</th>
                 <th>Available</th>
+                <th>Link</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -66,15 +67,17 @@
                             </td>
                             <td>
                                 <form:label path="shopId" cssClass="label" cssErrorClass="label is-danger">
-                                    Shop
+                                Shop
                                     <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name"
                                                  itemValue="id" cssErrorClass="select is-danger"/>
                                     <form:errors path="shopId" element="p" cssClass="help is-danger"/>
                                 </form:label>
-                                <form:hidden path="available" value="${editProduct.available}"/>
-                                <form:hidden path="id" value="${productId}"/>
-                                <form:hidden path="created" value="${editProduct.created}"/>
+                                    <form:hidden path="available" value="${editProduct.available}"/>
+                                    <form:hidden path="id" value="${productId}"/>
+                                    <form:hidden path="created" value="${editProduct.created}"/>
+                            <td>
                                 <input type="submit" class="button is-success" value="Send">
+                            </td>
                             </td>
                             <s:csrfInput/>
                         </form:form>
@@ -94,6 +97,11 @@
                                 </c:otherwise>
                             </c:choose>
                         </span>
+                        </td>
+                        <td>
+                            <a href="<c:url value="${product.url}"/> " target="_blank">
+                                <span class="icon"><i class="fas fa-globe"></i></span>
+                            </a>
                         </td>
                         <td>
                             <a href="<c:url value="/product/all?productId=${product.id}&username=${username}"/>">

@@ -29,6 +29,7 @@
             <th>N<sup>o</sup></th>
             <th>Name</th>
             <th>Available</th>
+            <th>Link</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -48,6 +49,11 @@
                                 </c:otherwise>
                             </c:choose>
                         </span>
+                </td>
+                <td>
+                    <a href="<c:url value="${product.url}"/> " target="_blank">
+                        <span class="icon"><i class="fas fa-globe"></i></span>
+                    </a>
                 </td>
                 <td>
                     <a href="<c:url value="/product/all?productId=${product.id}&username=${username}"/>">
