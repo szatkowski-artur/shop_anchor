@@ -3,10 +3,7 @@ package pl.artur97szat.shopanchor.product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.artur97szat.shopanchor.shop.DefaultShopService;
 
 
@@ -51,13 +48,19 @@ public class ProductController {
 
     @GetMapping("/delete")
     public String deleteProduct(Long id, Model model) {
-        model.addAttribute("id", id);
-        return "";
+        model.addAttribute("product", productService.getProductByIdToAddProductDTO(id));
+        return "user/delete-product";
+    }
+
+    @RequestMapping("/delete")
+    public String processDeletingProduct(AddProductDto addProductDto){
+        productService.deleteProduct(addProductDto.getId());
+        return "redirect:all";
     }
 
     @PostMapping("/update")
-    public String updateProduct(@ModelAttribute AddProductDto productDto, Long productId, BindingResult result, Model model){
-        if (result.hasErrors()){
+    public String updateProduct(@ModelAttribute AddProductDto productDto, Long productId, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("productId", productId);
             model.addAttribute("editProduct", productService.getProductByIdToAddProductDTO(productId));
             model.addAttribute("shops", defaultShopService.getAllShops());

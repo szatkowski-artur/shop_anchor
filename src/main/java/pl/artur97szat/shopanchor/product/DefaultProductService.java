@@ -22,6 +22,10 @@ public class DefaultProductService implements ProductService {
         this.mapper = mapper;
     }
 
+    public void deleteProduct(Long id){
+        productRepository.deleteById(id);
+    }
+
     @Override
     public void saveProduct(AddProductDto addProductDto) {
 
