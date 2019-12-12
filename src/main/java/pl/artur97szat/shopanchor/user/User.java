@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import pl.artur97szat.shopanchor.product.Product;
+import pl.artur97szat.shopanchor.registration.registrationCode.RegistrationCode;
 import pl.artur97szat.shopanchor.role.Role;
 import pl.artur97szat.shopanchor.userDetails.UserDetails;
 
@@ -42,5 +43,8 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Product> product;
+
+    @OneToOne(mappedBy = "user")
+    private RegistrationCode registrationCode;
 
 }
