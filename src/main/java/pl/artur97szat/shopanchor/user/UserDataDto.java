@@ -1,8 +1,9 @@
-package pl.artur97szat.shopanchor.registration.details;
+package pl.artur97szat.shopanchor.user;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.artur97szat.shopanchor.userDetails.Gender;
+import pl.artur97szat.shopanchor.validation.constrains.UsernameDb;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,7 +11,12 @@ import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 @Data
-public class DetailsRegistrationDataDTO {
+public class UserDataDto {
+
+    @NotBlank
+    private String username;
+
+    private String email;
 
     @NotNull(message = "Cannot be empty")
     private Long owner;
@@ -44,5 +50,6 @@ public class DetailsRegistrationDataDTO {
     private String streetNumber;
 
     private String flatNumber;
+
 
 }

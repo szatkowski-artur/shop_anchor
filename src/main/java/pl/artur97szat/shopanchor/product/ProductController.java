@@ -40,6 +40,7 @@ public class ProductController {
 
     @GetMapping("/all")
     public String allProducts(Long productId, Model model) {
+        productService.updateAllProductsForUser();
         model.addAttribute("products", productService.getAllProductsForUser());
         if (productId != null) {
             model.addAttribute("editProduct", productService.getProductByIdToAddProductDTO(productId));

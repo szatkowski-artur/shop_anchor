@@ -14,13 +14,16 @@ import pl.artur97szat.shopanchor.product.DefaultProductService;
 public class UserController {
 
     private final DefaultProductService productService;
+    private final UserService userService;
 
-    public UserController(DefaultProductService productService) {
+    public UserController(DefaultProductService productService, UserService userService) {
         this.productService = productService;
+        this.userService = userService;
     }
 
     @GetMapping
     public String userHomePage(Model model) {
+        productService.updateAllProductsForUser();
         model.addAttribute("products", productService.getNewestFiveForUser());
         return "user/user-dashboard";
     }
@@ -29,6 +32,13 @@ public class UserController {
     public String redirectToEdit(Long productId, Model model){
         model.addAttribute("productId", productId);
         return "product/all-products";
+    }
+
+    @GetMapping("/details")
+    private String userDetails(Model model){
+
+        model.addAttribute("userData", userService.getAllUsersData());
+
     }
 
 }
