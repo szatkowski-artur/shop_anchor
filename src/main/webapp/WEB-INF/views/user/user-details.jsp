@@ -30,6 +30,7 @@
     <div class="column is-one-third is-offset-one-third">
         <div class="box">
             <form:form method="post" modelAttribute="userData">
+                <form:hidden path="id" value="${userData.id}"/>
                 <div class="control">
                     <form:label path="username" cssClass="label" cssErrorClass="label is-danger">
                         Username
@@ -48,113 +49,113 @@
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="firstName" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsFirstName" cssClass="label" cssErrorClass="label is-danger">
                         First Name
-                        <form:input path="firstName" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input path="detailsFirstName" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"
                         />
-                        <form:errors path="firstName" cssClass="help is-danger"/>
+                        <form:errors path="detailsFirstName" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="lastName" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsLastName" cssClass="label" cssErrorClass="label is-danger">
                         Last Name
-                        <form:input path="lastName" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input path="detailsLastName" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"
                         />
-                        <form:errors path="lastName" cssClass="help is-danger"/>
+                        <form:errors path="detailsLastName" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="birthday" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsBirthday" cssClass="label" cssErrorClass="label is-danger">
                         Birthday
-                        <form:input type="date" path="birthday" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input type="date" path="detailsBirthday" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"
                         />
-                        <form:errors path="birthday" cssClass="help is-danger"/>
+                        <form:errors path="detailsBirthday" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <c:choose>
                     <c:when test="${readonly == true}">
                         <div class="control">
-                            <form:label path="gender" cssClass="label" cssErrorClass="label is-danger">
+                            <form:label path="detailsGender" cssClass="label" cssErrorClass="label is-danger">
                                 Gender
-                                <form:input path="gender" cssClass="input" cssErrorClass="input is-danger"
+                                <form:input path="detailsGender" cssClass="input" cssErrorClass="input is-danger"
                                             readonly="${readonly}"
                                 />
-                                <form:errors path="gender" cssClass="help is-danger"/>
+                                <form:errors path="detailsGender" cssClass="help is-danger"/>
                             </form:label>
                         </div>
                         <div class="control">
-                            <form:label path="country" cssClass="label" cssErrorClass="label is-danger">
+                            <form:label path="detailsCountry" cssClass="label" cssErrorClass="label is-danger">
                                 Country
-                                <form:input path="country" cssClass="input" cssErrorClass="input is-danger"
+                                <form:input path="detailsCountry" cssClass="input" cssErrorClass="input is-danger"
                                             readonly="${readonly}"
                                 />
-                                <form:errors path="country" cssClass="help is-danger"/>
+                                <form:errors path="detailsCountry" cssClass="help is-danger"/>
                             </form:label>
                         </div>
                     </c:when>
                     <c:otherwise>
                         <div class="control">
-                            <form:label path="gender" cssClass="label" cssErrorClass="label is-danger">
+                            <form:label path="detailsGender" cssClass="label" cssErrorClass="label is-danger">
                                 Gender
-                                <form:select path="gender" items="${genders}" cssClass="select" cssErrorClass="select is-danger"
+                                <form:select path="detailsGender" items="${genders}" cssClass="select" cssErrorClass="select is-danger"
                                              readonly="${readonly}"/>
-                                <form:errors path="gender"/>
+                                <form:errors path="detailsGender"/>
                             </form:label>
                         </div>
                         <div class="control">
-                            <form:label path="country" cssClass="label" cssErrorClass="label is-danger">
+                            <form:label path="detailsCountry" cssClass="label" cssErrorClass="label is-danger">
                                 Country
-                                <form:select path="country" items="${countries}" cssClass="select" readonly="${readonly}"
+                                <form:select path="detailsCountry" items="${countries}" cssClass="select" readonly="${readonly}"
                                              cssErrorClass="select is-danger"/>
-                                <form:errors path="country" cssClass="help is-danger"/>
+                                <form:errors path="detailsCountry" cssClass="help is-danger"/>
                             </form:label>
                         </div>
                     </c:otherwise>
                 </c:choose>
                 <div class="control">
-                    <form:label path="city" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsCity" cssClass="label" cssErrorClass="label is-danger">
                         City
-                        <form:input path="city" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input path="detailsCity" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"/>
-                        <form:errors path="city" cssClass="help is-danger"/>
+                        <form:errors path="detailsCity" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="postalCode" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsPostalCode" cssClass="label" cssErrorClass="label is-danger">
                         Postal code
-                        <form:input path="postalCode" type="number" size="5" cssClass="input" readonly="${readonly}"
+                        <form:input path="detailsPostalCode" type="number" size="5" cssClass="input" readonly="${readonly}"
                                     cssErrorClass="input is-danger"/>
-                        <form:errors path="postalCode" cssClass="help is-danger"/>
+                        <form:errors path="detailsPostalCode" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="streetName" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsStreetName" cssClass="label" cssErrorClass="label is-danger">
                         Street name
-                        <form:input path="streetName" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input path="detailsStreetName" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"
                         />
-                        <form:errors path="streetName" cssClass="help is-danger"/>
+                        <form:errors path="detailsStreetName" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="streetNumber" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsStreetNumber" cssClass="label" cssErrorClass="label is-danger">
                         Street number
-                        <form:input path="streetNumber" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input path="detailsStreetNumber" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"
                         />
-                        <form:errors path="streetNumber" cssClass="help is-danger"/>
+                        <form:errors path="detailsStreetNumber" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">
-                    <form:label path="flatNumber" cssClass="label" cssErrorClass="label is-danger">
+                    <form:label path="detailsFlatNumber" cssClass="label" cssErrorClass="label is-danger">
                         Flat number
-                        <form:input path="flatNumber" cssClass="input" cssErrorClass="input is-danger"
+                        <form:input path="detailsFlatNumber" cssClass="input" cssErrorClass="input is-danger"
                                     readonly="${readonly}"
                         />
-                        <form:errors path="flatNumber" cssClass="help is-danger"/>
+                        <form:errors path="detailsFlatNumber" cssClass="help is-danger"/>
                     </form:label>
                 </div>
                 <div class="control">

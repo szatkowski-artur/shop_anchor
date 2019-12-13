@@ -3,50 +3,56 @@ package pl.artur97szat.shopanchor.user;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.artur97szat.shopanchor.userDetails.Gender;
-import pl.artur97szat.shopanchor.validation.constrains.UsernameDb;
+import pl.artur97szat.shopanchor.validation.constrains.RegistrationEmailDb;
+import pl.artur97szat.shopanchor.validation.constrains.UpdateUserData;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
-@Data
+@Data @UpdateUserData(message = "This username is already in use")
 public class UserDataDto {
 
-    @NotBlank
+    private Long id;
+
+    @NotBlank(message = "Cannot be empty")
     private String username;
 
+    @NotBlank(message = "Cannot be empty")
+    @Email(message = "This is not a proper email address")
     private String email;
 
     @NotBlank(message = "Cannot be empty")
-    private String firstName;
+    private String detailsFirstName;
 
     @NotBlank(message = "Cannot be empty")
-    private String lastName;
+    private String detailsLastName;
 
     @NotNull(message = "Cannot be empty")
-    private Gender gender;
+    private Gender detailsGender;
 
     @NotNull(message = "Cannot be empty") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate birthday;
+    private LocalDate detailsBirthday;
 
     @NotBlank(message = "Cannot be empty")
-    private String country;
+    private String detailsCountry;
 
     @NotBlank(message = "Cannot be empty")
-    private String city;
+    private String detailsCity;
 
     @NotBlank(message = "Cannot be empty")
     @Pattern(regexp = "\\d{5}", message = "Postal code contains five digits")
-    private String postalCode;
+    private String detailsPostalCode;
 
     @NotBlank(message = "Cannot be empty")
-    private String streetName;
+    private String detailsStreetName;
 
     @NotBlank(message = "Cannot be empty")
-    private String streetNumber;
+    private String detailsStreetNumber;
 
-    private String flatNumber;
+    private String detailsFlatNumber;
 
 
 }

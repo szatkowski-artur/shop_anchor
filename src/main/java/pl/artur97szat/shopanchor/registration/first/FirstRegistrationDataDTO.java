@@ -1,9 +1,9 @@
 package pl.artur97szat.shopanchor.registration.first;
 
 import lombok.Data;
-import pl.artur97szat.shopanchor.validation.constrains.EmailDb;
+import pl.artur97szat.shopanchor.validation.constrains.RegistrationEmailDb;
 import pl.artur97szat.shopanchor.validation.constrains.RetypePassword;
-import pl.artur97szat.shopanchor.validation.constrains.UsernameDb;
+import pl.artur97szat.shopanchor.validation.constrains.RegistrationUsernameDb;
 
 
 import javax.validation.constraints.*;
@@ -14,12 +14,12 @@ public class FirstRegistrationDataDTO {
 
     @NotBlank
     @Size(min = 5, max = 12)
-    @UsernameDb(message = "This username is already in use")
+    @RegistrationUsernameDb(message = "This username is already in use")
     private String username;
 
     @Email
     @NotBlank
-    @EmailDb(message = "This email is already in use")
+    @RegistrationEmailDb(message = "This email is already in use")
     private String email;
 
     @NotBlank

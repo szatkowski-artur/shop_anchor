@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.artur97szat.shopanchor.registration.registrationCode.RegistrationCodeService;
+import pl.artur97szat.shopanchor.userDetails.Gender;
 
 import javax.validation.Valid;
 import java.util.Arrays;
@@ -29,9 +30,9 @@ public class RegistrationDetailsController {
     }
 
     @ModelAttribute("genders")
-    List<String> genders() {
-        return Arrays.asList("MALE", "FEMALE");
-    }//TODO change it to enum values
+    List<Gender> genders() {
+        return Arrays.asList(Gender.values());
+    }
 
     @ModelAttribute("countries")
     List<String> countries() {

@@ -7,4 +7,6 @@ public interface UserService {
 
 
     UserDataDto getAllUsersData();
+
+    void updateUserData(UserDataDto userDataDto);
 }

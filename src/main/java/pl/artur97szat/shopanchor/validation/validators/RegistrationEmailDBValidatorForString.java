@@ -2,23 +2,23 @@ package pl.artur97szat.shopanchor.validation.validators;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.artur97szat.shopanchor.user.UserRepository;
-import pl.artur97szat.shopanchor.validation.constrains.UsernameDb;
+import pl.artur97szat.shopanchor.validation.constrains.RegistrationEmailDb;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class UsernameDBValidatorForString implements ConstraintValidator<UsernameDb, String> {
+public class RegistrationEmailDBValidatorForString implements ConstraintValidator<RegistrationEmailDb, String> {
 
     @Autowired
     UserRepository userRepository;
 
     @Override
-    public void initialize(UsernameDb constraintAnnotation) {
+    public void initialize(RegistrationEmailDb constraintAnnotation) {
 
     }
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return userRepository.getByUsername(s).isEmpty();
+        return userRepository.getByEmail(s).isEmpty();
     }
 }

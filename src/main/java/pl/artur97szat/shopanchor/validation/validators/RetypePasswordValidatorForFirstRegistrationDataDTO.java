@@ -6,7 +6,7 @@ import pl.artur97szat.shopanchor.validation.constrains.RetypePassword;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class RetypePasswordValidatorForString implements ConstraintValidator<RetypePassword, FirstRegistrationDataDTO> {
+public class RetypePasswordValidatorForFirstRegistrationDataDTO implements ConstraintValidator<RetypePassword, FirstRegistrationDataDTO> {
     @Override
     public void initialize(RetypePassword constraintAnnotation) {
 

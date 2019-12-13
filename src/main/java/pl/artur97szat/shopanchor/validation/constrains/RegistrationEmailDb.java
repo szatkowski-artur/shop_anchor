@@ -1,6 +1,6 @@
 package pl.artur97szat.shopanchor.validation.constrains;
 
-import pl.artur97szat.shopanchor.validation.validators.EmailDBValidatorForString;
+import pl.artur97szat.shopanchor.validation.validators.RegistrationEmailDBValidatorForString;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = EmailDBValidatorForString.class)
-public @interface EmailDb {
+@Constraint(validatedBy = RegistrationEmailDBValidatorForString.class)
+public @interface RegistrationEmailDb {
 
     String message() default "{pl.artur97szat.shopanchor.validation.constrains.EmailDB.message}";
     Class<?>[] groups() default {};

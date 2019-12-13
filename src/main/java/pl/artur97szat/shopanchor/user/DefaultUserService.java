@@ -2,6 +2,7 @@ package pl.artur97szat.shopanchor.user;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pl.artur97szat.shopanchor.userDetails.UserDetails;
 import pl.artur97szat.shopanchor.userDetails.UserDetailsRepository;
 import pl.artur97szat.shopanchor.utils.Username;
 
@@ -21,17 +22,26 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public UserDataDto getAllUsersData(){
+    public UserDataDto getAllUsersData() {
 
         User user = userRepository.getByUsername(Username.get()).get();
         UserDataDto userDataDto = Optional.ofNullable(user.getDetails())
                 .map(d -> mapper.map(d, UserDataDto.class))
                 .orElse(new UserDataDto());
 
+        userDataDto.setId(user.getId());
         userDataDto.setEmail(user.getEmail());
         userDataDto.setUsername(user.getUsername());
 
         return userDataDto;
+
+    }
+
+    @Override
+    public void updateUserData(UserDataDto userDataDto) {
+        User user = userRepository.getOne(userDataDto.getId());
+        mapper.map(userDataDto, user);
+        userRepository.save(user);
 
     }
 
