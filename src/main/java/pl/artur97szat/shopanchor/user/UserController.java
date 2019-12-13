@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.artur97szat.shopanchor.product.DefaultProductService;
+import pl.artur97szat.shopanchor.userDetails.Gender;
+
+import java.util.Arrays;
 
 @Secured("ROLE_USER")
 @Controller
@@ -35,10 +38,25 @@ public class UserController {
     }
 
     @GetMapping("/details")
-    private String userDetails(Model model){
+    public String userDetails(Model model){
 
+        model.addAttribute("readonly", true);
         model.addAttribute("userData", userService.getAllUsersData());
+        return "user/user-details";
 
+    }
+
+    @GetMapping("/details/edit")
+    public String editUserDetails(Model model){
+        model.addAttribute("readonly", false);
+        model.addAttribute("genders", Arrays.asList(Gender.values()));
+        model.addAttribute("userData", userService.getAllUsersData());
+        return "user/user-details";
+    }
+
+    @GetMapping("edit-password")
+    public String editPassword(){
+        return "";
     }
 
 }

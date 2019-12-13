@@ -18,9 +18,6 @@ public class UserDataDto {
 
     private String email;
 
-    @NotNull(message = "Cannot be empty")
-    private Long owner;
-
     @NotBlank(message = "Cannot be empty")
     private String firstName;
 

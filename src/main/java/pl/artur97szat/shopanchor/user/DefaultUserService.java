@@ -2,9 +2,10 @@ package pl.artur97szat.shopanchor.user;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.artur97szat.shopanchor.userDetails.UserDetails;
 import pl.artur97szat.shopanchor.userDetails.UserDetailsRepository;
 import pl.artur97szat.shopanchor.utils.Username;
+
+import java.util.Optional;
 
 @Service
 public class DefaultUserService implements UserService {
@@ -23,9 +24,10 @@ public class DefaultUserService implements UserService {
     public UserDataDto getAllUsersData(){
 
         User user = userRepository.getByUsername(Username.get()).get();
-        UserDetails userDetails = userDetailsRepository.getByOwnerId(user.getId());
+        UserDataDto userDataDto = Optional.ofNullable(user.getDetails())
+                .map(d -> mapper.map(d, UserDataDto.class))
+                .orElse(new UserDataDto());
 
-        UserDataDto userDataDto = mapper.map(userDetails, UserDataDto.class);
         userDataDto.setEmail(user.getEmail());
         userDataDto.setUsername(user.getUsername());
 

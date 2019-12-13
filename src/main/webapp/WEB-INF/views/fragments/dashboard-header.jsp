@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: artur
@@ -41,19 +42,19 @@
                     More
                 </a>
 
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/register/details">
-                        Your account details
+                <div class="navbar-dropdown has-icons-left">
+                    <a class="navbar-item" href="<c:url value="/user/details"/> ">
+                        <span class="icon"><i class="fas fa-users-cog"></i></span>
+                        <span> Account settings </span>
                     </a>
-                    <a class="navbar-item">
-                        Change password
-                    </a>
-                    <a class="navbar-item">
-                        Contact
+                    <a class="navbar-item" href="<c:url value=""/> ">
+                        <span class="icon"><i class="far fa-envelope"></i></span>
+                        <span>Contact us</span>
                     </a>
                     <hr class="navbar-divider">
                     <a class="navbar-item">
-                        Report an issue
+                        <span class="icon"><i class="fas fa-bug"></i></span>
+                        <span>Report an issue</span>
                     </a>
                 </div>
             </div>
@@ -62,9 +63,9 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-<%--                    TODO add proper username--%>
-                    <form action="/logout" method="post" >
-                        <input type="button" value="Welcome ${username}" class="button is-success">
+                    <%--                    TODO add proper username--%>
+                    <form action="/logout" method="post">
+                        <input type="button" value="Welcome <sec:authentication property="name"/>! " class="button is-success">
                         <input type="submit" value="Logout" class="button is-primary">
                         <s:csrfInput/>
                     </form>
