@@ -35,7 +35,7 @@
                     <form:label path="username" cssClass="label" cssErrorClass="label is-danger">
                         Username
                         <form:input path="username" cssClass="input" cssErrorClass="input is-danger"
-                                    readonly="${readonly}"
+                                    readonly="true"
                         />
                         <form:errors path="username" cssClass="help is-danger"/>
                     </form:label>
@@ -43,7 +43,7 @@
                 <div class="control">
                     <form:label path="email" cssClass="label" cssErrorClass="label is-danger">
                         Email
-                        <form:input path="email" cssClass="input" cssErrorClass="input is-danger" readonly="${readonly}"
+                        <form:input path="email" cssClass="input" cssErrorClass="input is-danger" readonly="true"
                         />
                         <form:errors path="email" cssClass="help is-danger"/>
                     </form:label>

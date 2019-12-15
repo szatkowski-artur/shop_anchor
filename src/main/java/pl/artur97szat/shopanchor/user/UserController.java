@@ -68,8 +68,9 @@ public class UserController {
     }
 
     @PostMapping("/details/edit")
-    public String processEditUserDetails(@Valid @ModelAttribute("userData") UserDataDto userDataDto, BindingResult result){
+    public String processEditUserDetails(@Valid @ModelAttribute("userData") UserDataDto userDataDto, BindingResult result, Model model){
         if (result.hasErrors()){
+            model.addAttribute("readonly", false);
             return "user/user-details";
         }
         userService.updateUserData(userDataDto);

@@ -17,7 +17,7 @@
     <div class="container has-text-white">
         <h1><strong>
             Congratulations Your're almost done!</br>
-            To finish registration You have to click on confirmation link we've send to your
+            To finish registration You have to click on confirmation link we've send to you
             email(${registrationDataDTO.email})</br>
             See You soon!
         </strong></h1>
