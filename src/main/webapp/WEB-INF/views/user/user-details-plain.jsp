@@ -14,11 +14,11 @@
             <div class="column">
                 <div class="box is-light">
                     <br>
-                    <br>
                     <strong>Username: </strong> ${userData.username}<br>
                     <strong>Email: </strong> ${userData.email}
-                        <br>
-                        <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
             <div class="column">
