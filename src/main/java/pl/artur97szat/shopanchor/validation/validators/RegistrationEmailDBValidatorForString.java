@@ -19,6 +19,6 @@ public class RegistrationEmailDBValidatorForString implements ConstraintValidato
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return userRepository.getByEmail(s).isEmpty();
+        return userRepository.existsByEmail(s);
     }
 }

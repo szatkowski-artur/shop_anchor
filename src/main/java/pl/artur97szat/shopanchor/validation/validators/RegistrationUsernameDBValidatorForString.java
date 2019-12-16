@@ -19,6 +19,6 @@ public class RegistrationUsernameDBValidatorForString implements ConstraintValid
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return userRepository.getByUsername(s).isEmpty();
+        return userRepository.existsByUsername(s);
     }
 }
