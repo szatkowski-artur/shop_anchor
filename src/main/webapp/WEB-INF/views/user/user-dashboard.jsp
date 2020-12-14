@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Your account</title>
-    <jsp:include page="../fragments/dashboard-header.jsp"></jsp:include>
+    <jsp:include page="../fragments/dashboard-header.jsp"/>
 </head>
 <body>
 <section class="section">
@@ -42,7 +42,8 @@
                         <span class="icon">
                             <c:choose>
                                 <c:when test="${product.available}">
-                                    <i class="fas fa-check"></i>
+                                    <%--                                    <i class="fas fa-check"></i>--%>
+                                    &#10003;
                                 </c:when>
                                 <c:otherwise>
                                     <i class="fas fa-minus"></i>
@@ -52,17 +53,27 @@
                 </td>
                 <td>
                     <a href="<c:url value="${product.url}"/> " target="_blank">
-                        <span class="icon"><i class="fas fa-globe"></i></span>
+                        <span class="icon">
+<%--                            <i class="fas fa-globe"></i>--%>
+                            &neArr;
+                        </span>
                     </a>
                 </td>
                 <td>
                     <a href="<c:url value="/product/all?productId=${product.id}&username=${username}"/>">
-                        <span class="icon"><i class="fas fa-edit"></i></span>
+                        <span class="icon">
+                            &bigoplus;
+<%--                            <i class="fas fa-edit"></i>--%>
+                        </span>
                     </a>
                 </td>
                 <td>
                     <a href="<c:url value="/product/delete?id=${product.id}" />">
-                        <span class="icon"><i class="fas fa-times"></i></span>
+
+                        <span class="icon">
+                            &cross;
+<%--                            <i class="fas fa-times"></i>--%>
+                        </span>
                     </a>
                 </td>
             </tr>

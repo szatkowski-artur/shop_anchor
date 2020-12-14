@@ -8,4 +8,6 @@ public interface ShopRepository extends JpaRepository<Shop, Long> {
 
     @Override
     <S extends Shop> List<S> saveAll(Iterable<S> iterable);
+
+    Shop getShopByType(ShopType shopType);
 }

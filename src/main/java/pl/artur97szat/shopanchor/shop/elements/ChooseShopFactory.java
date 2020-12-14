@@ -10,20 +10,13 @@ import java.lang.reflect.InvocationTargetException;
 public class ChooseShopFactory {
 
     public static ElementStrategy chooseShop(ShopType shopType) throws ShopNotSupportedException {
+
         try {
+            return shopType.getStrategy()
+                    .getDeclaredConstructor()
+                    .newInstance();
 
-            return shopType.getStrategy().getDeclaredConstructor().newInstance();
-
-        } catch (InstantiationException e) {
-            log.error("No implementation found for that shop name");
-            throw new ShopNotSupportedException("This shop is not supported");
-        } catch (IllegalAccessException e) {
-            log.error("No implementation found for that shop name");
-            throw new ShopNotSupportedException("This shop is not supported");
-        } catch (InvocationTargetException e) {
-            log.error("No implementation found for that shop name");
-            throw new ShopNotSupportedException("This shop is not supported");
-        } catch (NoSuchMethodException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             log.error("No implementation found for that shop name");
             throw new ShopNotSupportedException("This shop is not supported");
         }

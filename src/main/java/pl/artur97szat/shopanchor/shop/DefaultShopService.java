@@ -1,15 +1,11 @@
 package pl.artur97szat.shopanchor.shop;
 
 import lombok.extern.slf4j.Slf4j;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
-import pl.artur97szat.shopanchor.exeption.CouldNotConnectToPageException;
 import pl.artur97szat.shopanchor.exeption.ShopNotSupportedException;
 import pl.artur97szat.shopanchor.shop.elements.ChooseShopFactory;
 import pl.artur97szat.shopanchor.shop.elements.ElementStrategy;
 
-import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -23,9 +19,14 @@ public class DefaultShopService implements ShopService {
     }
 
     @Override
-    public ElementStrategy getShopImplementation(ShopType shopName)throws ShopNotSupportedException {
-        return ChooseShopFactory.chooseShop(shopName);
+    public ElementStrategy getShopImplementation(ShopType shopType) throws ShopNotSupportedException {
+        return ChooseShopFactory.chooseShop(shopType);
 
+    }
+
+    @Override
+    public Shop getShopByType(ShopType shopType) {
+        return shopRepository.getShopByType(shopType);
     }
 
     @Override

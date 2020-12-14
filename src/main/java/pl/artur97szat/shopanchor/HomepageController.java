@@ -11,8 +11,6 @@ public class HomepageController {
 
     @GetMapping
     public String homepage(){
-
-        log.error("kupa");
         return "homepage";
     }
 

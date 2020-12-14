@@ -1,9 +1,9 @@
 package pl.artur97szat.shopanchor.product;
 
 import lombok.Data;
+import pl.artur97szat.shopanchor.validation.constrains.IsShopImplemented;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Data
 public class AddProductDto {
@@ -11,12 +11,12 @@ public class AddProductDto {
     private Long id;
 
     @NotBlank
+    @IsShopImplemented(message = "This shop have not been yet implemented")
     private String url;
 
     @NotBlank
     private String name;
 
-    @NotNull
     private Long shopId;
 
     @NotBlank

@@ -25,12 +25,11 @@ public class ProductController {
     @GetMapping("/add")
     public String addProductForm(Model model) {
         model.addAttribute("product", new AddProductDto());
-        model.addAttribute("shops", defaultShopService.getAllShops());
         return "product/add-product";
     }
 
     @PostMapping("/add")
-    public String processAddingProduct(@ModelAttribute @Valid AddProductDto addProductDto, BindingResult result) {
+    public String processAddingProduct(@ModelAttribute("product") @Valid AddProductDto addProductDto, BindingResult result) {
         if (result.hasErrors()) {
             return "product/add-product";
         }

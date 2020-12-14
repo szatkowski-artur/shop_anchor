@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface ShopService {
 
-    ElementStrategy getShopImplementation(ShopType shopName) throws CouldNotConnectToPageException, ShopNotSupportedException;
+    ElementStrategy getShopImplementation(ShopType shopType) throws CouldNotConnectToPageException, ShopNotSupportedException;
+
+    Shop getShopByType(ShopType shopType);
 
     List<Shop> getAllShops();
 

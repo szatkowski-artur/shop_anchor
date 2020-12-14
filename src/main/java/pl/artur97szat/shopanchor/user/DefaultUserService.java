@@ -2,7 +2,6 @@ package pl.artur97szat.shopanchor.user;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.artur97szat.shopanchor.userDetails.UserDetails;
 import pl.artur97szat.shopanchor.userDetails.UserDetailsRepository;
 import pl.artur97szat.shopanchor.utils.Username;
 

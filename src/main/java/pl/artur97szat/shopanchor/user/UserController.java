@@ -78,8 +78,9 @@ public class UserController {
     }
 
     @GetMapping("edit-password")
-    public String editPassword(){
-        return "";
+    public String editPassword(Model model){
+        model.addAttribute("editPassword", true);
+        return "user/user-details";
     }
 
 }

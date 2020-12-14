@@ -26,17 +26,12 @@
             <form:label path="size" cssClass="label">
                 Size
                 <form:input path="size" cssClass="input"/>
+                <form:errors path="size" cssClass="help is-danger"/>
             </form:label>
             <form:label path="url" cssClass="label" cssErrorClass="label is-danger">
                 URL
                 <form:input path="url" cssClass="input" cssErrorClass="input is-danger"/>
                 <form:errors path="url" element="p" cssClass="help is-danger"/>
-            </form:label>
-            <form:label path="shopId" cssClass="label" cssErrorClass="label is-danger">
-                Shop
-                <form:select path="shopId" items="${shops}" cssClass="select" itemLabel="name" itemValue="id"
-                             cssErrorClass="select is-danger"/>
-                <form:errors path="shopId" element="p" cssClass="help is-danger"/>
             </form:label>
             <form:hidden path="available" value="${false}"/>
             <input type="submit" class="button is-success" value="Send">
